@@ -32,4 +32,4 @@ sudo docker --version
 echo "Adding user to Docker group (optional)..."
 sudo usermod -aG docker $USER
 
-echo "Installation completed. Please log out and back in to run Docker commands without sudo."
+echo "Installation completed. Please restart your PC and back in to run Docker commands without sudo."
