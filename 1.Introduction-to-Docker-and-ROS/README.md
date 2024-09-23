@@ -2,7 +2,7 @@
 # Introduction to Docker with ROS 
 
 <div style="text-align: center;">
-    <img src="../images/1.png" alt="alt text" style="max-width: 60%; height: auto;">
+    <img src="./images/1.png" alt="alt text" style="max-width: 60%; height: auto;">
 </div>
 
 
@@ -11,7 +11,7 @@
 The phrase **"It works on my machine"** highlights a common challenge in software development—environment inconsistencies that lead to bugs and deployment failures. Docker addresses this issue by providing a standardized environment for applications.
 
 <div style="text-align: center;">
-    <img src="../images/2.png" alt="alt text" style="max-width: 40%; height: auto;">
+    <img src="./images/2.png" alt="alt text" style="max-width: 40%; height: auto;">
 </div>
 
 
@@ -28,7 +28,7 @@ Docker is an open-source platform that automates the deployment, scaling, and ma
 ## Key Components:
 
 <div style="text-align: center;">
-    <img src="../images/3.png" alt="alt text" style="max-width: 60%; height: auto;">
+    <img src="./images/3.png" alt="alt text" style="max-width: 60%; height: auto;">
 </div>
 
 
@@ -64,7 +64,7 @@ Docker is an open-source platform that automates the deployment, scaling, and ma
 
   
 <div style="text-align: center;">
-    <img src="../images/5.png" alt="alt text" style="max-width: 60%; height: auto;">
+    <img src="./images/5.png" alt="alt text" style="max-width: 60%; height: auto;">
 </div>
 
 ## Benefits of Containerization
@@ -93,7 +93,7 @@ Docker is an open-source platform that automates the deployment, scaling, and ma
 ## Why Use Docker with ROS?
 
 <div style="text-align: center;">
-    <img src="../images/6.png" alt="alt text" style="max-width: 40%; height: auto;">
+    <img src="./images/6.png" alt="alt text" style="max-width: 40%; height: auto;">
 </div>
 
 
@@ -178,10 +178,13 @@ Verify the installation by running a simple test:
 ```bash
 docker run hello-world
 ```
-### You also can use  [Docker Installation Script](../source-code/scripts/install_docker.sh)
+### You also can use  [Docker Installation Script](./source-code/scripts/install_docker.sh)
 
 
 ## Pull and Run Your First ROS Docker Image
+<div style="text-align: center;">
+    <img src="./images/7.png" alt="alt text" style="max-width: 70%; height: auto;">
+</div>
 
 To pull and run a Docker image for the **Robot Operating System (ROS)**, follow these steps:
 
@@ -215,3 +218,51 @@ To exit the container, press `Ctrl + C` to stop ROS, then type:
 ```bash
 exit
 ```
+To connect a new terminal to an already running Docker container, you can use the `docker exec` command. This allows you to start an additional shell session inside the running container without stopping or restarting it.
+
+## Steps to Connect a New Terminal to a Running Docker Container
+
+#### 1. **List Running Containers**
+First, list the running containers to get the container ID or name:
+```bash
+docker ps
+```
+
+You’ll see an output like this:
+```
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS         PORTS     NAMES
+abc123xyz456   ros:noetic-ros-core  "/bin/bash"              5 minutes ago   Up 5 minutes             gallant_knuth
+```
+Here, `abc123xyz456` is the Container ID, and `gallant_knuth` is the container name.
+
+#### 2. **Connect a New Terminal to the Running Container**
+Once you have the container ID or name, open a new terminal and run:
+```bash
+docker exec -it <container_id_or_name> /bin/bash
+```
+
+For example:
+```bash
+docker exec -it abc123xyz456 /bin/bash
+```
+or using the container name:
+```bash
+docker exec -it gallant_knuth /bin/bash
+```
+
+This will open a new shell session inside the running container, allowing you to interact with it just like the original session.
+
+#### 3. **Run Commands Inside the Container**
+Once connected, you can run any commands inside the container in this new terminal window.
+
+For example, you can navigate the file system, check running processes, or run `roscore`:
+```bash
+roscore
+```
+
+#### 4. **Exit the New Terminal**
+To close this session without stopping the container, simply type:
+```bash
+exit
+```
+

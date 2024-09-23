@@ -1,6 +1,6 @@
 # Docker-with-ROS
 
-### 1. **[Introduction to Docker and ROS](1.Introduction-to-Docker-and-ROS/docs/1.Introduction-to-Docker-and-ROS.md)**
+### 1. **[Introduction to Docker with ROS](1.Introduction-to-Docker-and-ROS/docs/1.Introduction-to-Docker-and-ROS.md)**
    - **What is Docker?**
      - Brief overview of Docker.
      - Benefits of containerization.
